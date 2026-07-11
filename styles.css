@@ -1,0 +1,210 @@
+/* =====================================================================
+   ✅ LUXURY LAYOUT OVERRIDES — PUT AT ABSOLUTE END OF landing.css
+   Goal:
+   - Wider page
+   - Treatments as luxury rounded cards side-by-side
+   - Great mobile layout
+   ===================================================================== */
+
+:root{
+  --bg: #f5f5f7;
+  --card-bg: #ffffff;
+  --card-soft: #fbfbfd;
+  --text: #111827;
+  --muted: #6b7280;
+
+  --gold: #b98b3c;
+  --gold-2: #c99a45;
+
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+
+  --shadow-1: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-2: 0 18px 55px rgba(15, 23, 42, 0.12);
+  --border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+/* ===== Page background (more premium) ===== */
+body.landing-page{
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(185,139,60,0.10), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(17,24,39,0.06), transparent 55%),
+    var(--bg);
+  color: var(--text);
+}
+
+/* ===== Wider container ===== */
+.container{
+  max-width: 1240px;                 /* ✅ wider */
+  margin: 32px auto 56px;            /* more breathing room */
+  padding: 28px 26px 34px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-2);
+}
+
+/* Tablet */
+@media (max-width: 980px){
+  .container{
+    max-width: 980px;
+    margin: 18px auto 38px;
+    padding: 22px 18px 26px;
+    border-radius: 20px;
+  }
+}
+
+/* Mobile: full width, comfortable padding */
+@media (max-width: 640px){
+  .container{
+    max-width: 100%;
+    margin: 0;
+    padding: 16px 14px 20px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* ===== Treatments grid: side-by-side luxury cards ===== */
+.home-grid{
+  gap: 22px;
+  align-items: stretch;
+
+  /* Desktop: 3 columns (luxury look) */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Medium screens: 2 columns */
+@media (max-width: 980px){
+  .home-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Small screens: 1 column */
+@media (max-width: 640px){
+  .home-grid{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* ===== Card styling (premium) ===== */
+.product-card{
+  background: linear-gradient(180deg, var(--card-bg), var(--card-soft));
+  border: var(--border);
+  border-radius: var(--radius-xl);
+  padding: 18px 18px 20px;
+  box-shadow: var(--shadow-1);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+@media (hover:hover){
+  .product-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 22px 60px rgba(15, 23, 42, 0.14);
+    border-color: rgba(185,139,60,0.28);
+  }
+}
+
+/* Typography inside cards */
+.product-card p{
+  color: #4b5563;
+  line-height: 1.65;
+  font-size: 0.98rem;
+}
+
+/* Tag chip */
+.product-card .tag{
+  background: rgba(185,139,60,0.14);
+  color: #3a2a10;
+  border: 1px solid rgba(185,139,60,0.18);
+  font-weight: 700;
+}
+
+/* Title: a bit more premium */
+.product-card .product-title{
+  font-size: 1.12rem;
+  letter-spacing: 0.01em;
+}
+
+/* Price stronger */
+.product-card .price{
+  font-weight: 900;
+  font-size: 1.02rem;
+}
+
+/* ===== Duration pills (clean, luxury) ===== */
+.duration-options{
+  gap: 10px;
+}
+
+.duration-options label{
+  border-radius: 999px;
+  border: 1px solid rgba(17,24,39,0.14);
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 6px 14px rgba(15,23,42,0.06);
+  padding: 6px 12px;
+  font-weight: 700;
+}
+
+.duration-options label:hover{
+  border-color: rgba(185,139,60,0.28);
+}
+
+/* ===== Button: premium + consistent. Make it full width inside cards ===== */
+.button,
+.booking-submit{
+  background: var(--gold);
+  box-shadow: 0 12px 28px rgba(185, 139, 60, 0.30);
+}
+
+.button:hover,
+.booking-submit:hover{
+  background: var(--gold-2);
+  box-shadow: 0 16px 34px rgba(185, 139, 60, 0.38);
+}
+
+.product-card .button{
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 999px;
+}
+
+/* ===== WhatsApp floating button: a bit more elegant ===== */
+.wa-float{
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 18px 40px rgba(37, 211, 102, 0.42);
+}
+
+/* ===== Optional: keep headings centered nicer on mobile ===== */
+@media (max-width: 640px){
+  .promo-title.xl{ font-size: 1.6rem; }
+  .promo-text.lg{ font-size: 1.0rem; }
+}
+
+/* ===== Flagship slider (if you use it): make slides match luxury cards ===== */
+.flagship-slide.product-card,
+.flagship-card{
+  border-radius: var(--radius-xl);
+  border: var(--border);
+  background: linear-gradient(180deg, var(--card-bg), var(--card-soft));
+  box-shadow: var(--shadow-1);
+}
+
+/* If flagship is scroll-snap track (your latest version): keep it clean */
+.flagship-slider__track{
+  padding: 12px;
+  gap: 16px;
+}
+
+/* Slides widths (better desktop look) */
+.flagship-slide{ flex: 0 0 86%; }
+@media (min-width: 700px){ .flagship-slide{ flex-basis: 48%; } }
+@media (min-width: 1100px){ .flagship-slide{ flex-basis: 32%; } }
+
+/* Nav buttons premium */
+.flagship-slider__nav{
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 14px 34px rgba(15,23,42,0.18);
+}
