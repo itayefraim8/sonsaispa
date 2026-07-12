@@ -1,6 +1,6 @@
 // landing-landing.js — i18n + כפתורי טיפול לווטסאפ + כרטיסייה לווטסאפ
 
-const WHATSAPP_NUMBER = '995593202903';
+const WHATSAPP_NUMBER = '995555397698';
 const WHATSAPP_BASE = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 const SUPPORTED_LANGS = new Set(['he', 'en', 'ru', 'ka']);
